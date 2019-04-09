@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>World Countries Data:Countries API</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body>
+    <header id="countries">
+      <h2>World Countries Data</h2>
+      <p class="subtitle"></p>
+      <p class="feedback"></p>
+    </header>
+    <main>
+      <div class="controls">
+        <input
+          class="search-input"
+          type="text"
+          placeholder="Search countries by name, city and languages"
+          autofocus
+        />
+
+        <div class="buttons">
+          <button class="name">
+            Name <i class="fas fa-long-arrow-alt-down" ></i>
+          </button>
+          <button class="capital">
+            Capital <i class="fas fa-long-arrow-alt-down" ></i>
+          </button>
+          <button class="population">
+            Population <i class="fas fa-long-arrow-alt-down"></i>
+          </button>
+          <a href="#stat"><i class="fas fa-chart-bar"></i></a>
+        </div>
+      </div>
+
+      <div class="countries-wrapper"></div>
+      <div class="wrapper">
+        <div class="graph-buttons">
+          <button class="population">Population</button>
+          <button class="languages">Langauges</button>
+        </div>
+        <h4 class="graph-title"></h4>
+        <div class="graphs">
+          <div class="graph-wrapper" id="stat"></div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div>
+        <h5>Developed by AY</h5>
+      </div>
+      <div>
+        <a href="#countries"><i class="fas fa-arrow-up"></i></a>
+      </div>
+    </footer>
+    <script src="./js/main.js"></script>
+    <script></script>
+  </body>
+</html>
