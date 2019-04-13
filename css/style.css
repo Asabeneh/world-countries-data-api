@@ -54,15 +54,16 @@ input {
   margin: 3rem auto;
   text-indent: 2rem;
   outline: none;
-  border: 0.2rem solid rgb(250, 246, 246);
+  border: 0.2rem solid rgb(238, 230, 230);
   font-size: 2rem;
   border-radius: 3rem;
-  background: rgb(250, 246, 246);
+  /* background: rgb(250, 246, 246); */
 }
 
 input:hover, input:focus {
-  box-shadow: 0 0 0.1rem 0.1rem rgb(236, 230, 230);
-  background: rgb(250, 246, 246);
+  box-shadow: 0rem 0rem 0.2rem 0.2rem rgb(238, 230, 230);;
+  transform: scale(1.01);
+    border:none;
 }
 
 input::placeholder {
