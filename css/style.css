@@ -11,8 +11,8 @@ html {
 }
 
 body {
-  margin: 1rem;
-  font-family: "Montserrat", sans-serif;
+  margin: 0 1rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /*=== HEADER ===*/
@@ -60,10 +60,11 @@ input {
   /* background: rgb(250, 246, 246); */
 }
 
-input:hover, input:focus {
-  box-shadow: 0rem 0rem 0.2rem 0.2rem rgb(238, 230, 230);;
+input:hover,
+input:focus {
+  box-shadow: 0rem 0rem 0.2rem 0.2rem rgb(238, 230, 230);
   transform: scale(1.01);
-    border:none;
+  border: none;
 }
 
 input::placeholder {
@@ -176,7 +177,8 @@ button i {
   color: #333;
 }
 
-.capital i, .population i {
+.capital i,
+.population i {
   display: none;
 }
 
@@ -264,20 +266,73 @@ h4 {
   margin: 0.5rem 0;
 }
 
-footer {
-  display: flex;
-  justify-content: space-around;
-  height: 8rem;
-  align-items: center;
-  margin: 0.5rem auto;
-  background: rgb(236, 230, 230);
-  margin-top: 1rem;
-  font-size: 2.4rem;
-  color: #333;
+i {
+  font-size: 56px;
   color: #ffa500;
-  font-weight: bolder;
+  font-weight: 600;
 }
 
+h4 {
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+/* footer */
+footer {
+  margin-top: 15px;
+  background: rgb(236, 230, 230);
+  padding: 20px;
+  text-align: center;
+}
+/* icons style */
+
+.copyright {
+  color: white;
+  font-size: 14px !important;
+  color: black;
+}
+.footer-wrapper > div a {
+  margin: 25px;
+}
+
+.fa-github-square {
+  font-size: 32px;
+  margin: 30px;
+  color: #333;
+}
+.fa-linkedin {
+  color: #0077b5;
+  font-size: 32px;
+  margin: 30px;
+}
+.fa-twitter-square {
+  color: #1da1f2;
+  font-size: 32px;
+  margin: 30px;
+}
+.arrow-icon-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+.fa-chevron-circle-up {
+  cursor: pointer;
+  font-size: 32px;
+  color: #f3d36b;
+}
+.fa-chevron-circle-up:hover {
+  color: #ffa500;
+}
+.fa-quote-left,
+.fa-quote-right {
+  color: #b9b5b5;
+  font-size: 16px;
+  background: #f3d36b;
+}
+.fa-youtube-square {
+  color: #ff0000;
+  font-size: 32px;
+  margin: 30px;
+}
 
 @media (max-width: 600px) {
   body {
@@ -302,7 +357,8 @@ footer {
     justify-content: center;
     align-items: center;
   }
-  .buttons button, .buttons a {
+  .buttons button,
+  .buttons a {
     width: 100%;
     margin: 0.5rem auto;
     border-radius: 0.5rem;
@@ -349,7 +405,8 @@ footer {
     border-radius: 0.2rem;
     border: 0.1rem solid #ffa500;
   }
-  footer i, h5 {
+  footer i,
+  h5 {
     font-size: 2rem;
     color: #ffa500;
     font-weight: 600;

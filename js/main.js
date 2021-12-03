@@ -21,7 +21,7 @@ const populationIcon = document.querySelector(".population i");
 /* Create a single country UI*/
 const createCountryUI = ({ name, capital, languages, population, flag }) => {
   const formatedCapital =
-    capital.length > 0 ? `<span>Capital: </span>${capital}` : "";
+    capital && capital.length > 0 ? `<span>Capital: </span>${capital}` : "";
   const langLength = languages.length > 1 ? `Langauges` : `Langauge`;
   const formatedLang = languages.map(lang => lang.name).join(", ");
   return `<div class="country">
@@ -44,7 +44,7 @@ const filterCountries = (arr, search) => {
     const { name, capital, languages } = country;
     const formatedLang = languages.map(lang => lang.name).join(", ");
     const isName = name.toLowerCase().includes(search);
-    const isCapital = capital.toLowerCase().includes(search);
+    const isCapital = capital && capital.toLowerCase().includes(search);
     const isLanguages = formatedLang.toLowerCase().includes(search);
     return isName || isCapital || isLanguages;
   });
@@ -167,8 +167,9 @@ function displayIcon(type) {
 }
 
 /* Fetching countries data using fetch  */
+// 
 
-const url = "https://restcountries.eu/rest/v2/all";
+const url = "https://restcountries.com/v2/all";
 
 //Fetching from API starts here
 fetch(url)
@@ -193,9 +194,9 @@ fetch(url)
           searchInput.value === ""
             ? reverseCountries(countries)
             : sortCountries(
-                filterCountries(countries, searchInput.value),
-                type
-              );
+              filterCountries(countries, searchInput.value),
+              type
+            );
         if (nameFlag) {
           nameFlag = false;
           showArrowUp(e);
@@ -213,9 +214,9 @@ fetch(url)
           searchInput.value === ""
             ? sortCountries(countries, type)
             : sortCountries(
-                filterCountries(countries, searchInput.value),
-                type
-              );
+              filterCountries(countries, searchInput.value),
+              type
+            );
         if (capitalFlag) {
           capitalFlag = false;
           showArrowUp(e);
@@ -233,9 +234,9 @@ fetch(url)
           searchInput.value === ""
             ? sortCountries(countries, type)
             : sortCountries(
-                filterCountries(countries, searchInput.value),
-                type
-              );
+              filterCountries(countries, searchInput.value),
+              type
+            );
         if (populationFlag) {
           populationFlag = false;
           showArrowUp(e);
@@ -261,9 +262,8 @@ fetch(url)
           : "country";
       feedback.innerHTML =
         searchInput.value != ""
-          ? `<strong><b>${
-              filterCountries(countries, searchTerm).length
-            }</b></strong> ${countryOrCountries} satisified the search criteria`
+          ? `<strong><b>${filterCountries(countries, searchTerm).length
+          }</b></strong> ${countryOrCountries} satisified the search criteria`
           : "";
       renderCountries(filterCountries(countries, searchTerm));
       if (searchInput.value != "") {
