@@ -20,18 +20,18 @@ const populationIcon = document.querySelector('.population i')
 
 /* Create a single country UI*/
 const createCountryUI = ({ name, capital, languages, population, flag }) => {
-    const formatedCapital =
+    const formattedCapital =
         capital && capital.length > 0 ? `<span>Capital: </span>${capital}` : ''
-    const langLength = languages.length > 1 ? `Langauges` : `Langauge`
-    const formatedLang = languages.map((lang) => lang.name).join(', ')
+    const langLength = languages.length > 1 ? `Languages` : `Language`
+    const formattedLang = languages.map((lang) => lang.name).join(', ')
     return `<div class="country">
             <div class="country_flag">
               <img src="${flag}" />
             </div>
             <h3 class="country_name">${name.toUpperCase()}</h3>
             <div class="country_text">
-              <p>${formatedCapital}</p>
-              <p><span>${langLength}: </span>${formatedLang}</p>
+              <p>${formattedCapital}</p>
+              <p><span>${langLength}: </span>${formattedLang}</p>
               <p><span>Population: </span>${population.toLocaleString()}</p>
             </div>
         </div>`
@@ -42,10 +42,10 @@ const filterCountries = (arr, search) => {
     search = search.toLowerCase()
     const filteredCountries = arr.filter((country) => {
         const { name, capital, languages, region, subregion} = country
-        const formatedLang = languages.map((lang) => lang.name).join(', ')
+        const formattedLang = languages.map((lang) => lang.name).join(', ')
         const isName = name.toLowerCase().includes(search)
         const isCapital = capital && capital.toLowerCase().includes(search)
-        const isLanguages = formatedLang.toLowerCase().includes(search)
+        const isLanguages = formattedLang.toLowerCase().includes(search)
         const isRegion = region && region.toLowerCase().includes(search)
         const isSubRegion = subregion && subregion.toLowerCase().includes(search)
         return isName || isCapital || isLanguages
@@ -54,7 +54,7 @@ const filterCountries = (arr, search) => {
     return result
 }
 
-/* === Render  all the contries on the countries wrapper div */
+/* === Render  all the countries on the countries wrapper div */
 const renderCountries = (arr) => {
     let contents = ''
     arr.forEach((country) => (contents += createCountryUI(country)))
@@ -77,15 +77,15 @@ const reverseCountries = (arr) => {
     const countries = [...arr]
     return countries.reverse()
 }
-/* === calculate the number of times a langauage is  an official langauge in different countries. */
+/* === calculate the number of times a language is  an official language in different countries. */
 const countLanguages = (arr) => {
     const langs = []
     const langObjs = []
     const langSet = new Set()
     arr.forEach((country) => {
         const { languages } = country
-        const formatedLang = languages.map((lang) => lang.name)
-        for (const language of formatedLang) {
+        const formattedLang = languages.map((lang) => lang.name)
+        for (const language of formattedLang) {
             langs.push(language)
             langSet.add(language)
         }
@@ -100,14 +100,14 @@ const countLanguages = (arr) => {
 /* create  a population graph, create single bar */
 const createPopulationUI = ({ name, population }) => {
     const worldPopulation = 7693165599
-    let formatedName
-    if (name === 'Russian Federation') formatedName = 'Russia'
-    else if (name === 'United States of America') formatedName = 'USA'
-    else formatedName = name
+    let formattedName
+    if (name === 'Russian Federation') formattedName = 'Russia'
+    else if (name === 'United States of America') formattedName = 'USA'
+    else formattedName = name
 
     const width = Math.round((population / worldPopulation) * 100)
     return `<div class="bars">
-              <div>${formatedName}</div>
+              <div>${formattedName}</div>
               <div class="bar" style="width:${width}%;height:35px;"></div>
               <div>${population.toLocaleString()}</div>
           </div>`
@@ -182,7 +182,7 @@ fetch(url)
             0,
             10
         )
-        // Ten most spoken langauge by region or by location
+        // Ten most spoken language by region or by location
         const mostSpokenLanguages = sortCountries(
             countLanguages(countries),
             'countries'
@@ -266,7 +266,7 @@ fetch(url)
                 searchInput.value != ''
                     ? `<strong><b>${
                           filterCountries(countries, searchTerm).length
-                      }</b></strong> ${countryOrCountries} satisified the search criteria`
+                      }</b></strong> ${countryOrCountries} satisfied the search criteria`
                     : ''
             renderCountries(filterCountries(countries, searchTerm))
             if (searchInput.value != '') {
